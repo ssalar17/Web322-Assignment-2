@@ -1,8 +1,10 @@
-const express = require("express"); 
+const express = require('express'); 
 const exphbs = require('express-handlebars'); 
-const db = require("./model/dataDB");
+const db = require('./model/dataDB');
 const app = express(); 
+const bodyParser = require('body-parser');
 
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static('public'));
 app.engine('handlebars', exphbs()); 
 app.set('view engine', 'handlebars'); 
@@ -38,3 +40,4 @@ app.get("/signup", (req,res)=>{
         hero: "Meals and grocery delivered."
     })
 })
+app.post("")
